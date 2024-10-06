@@ -23,7 +23,12 @@
          getPlayerMove('scissors');
         "><img src="scissors.jpg"></button>
 
-
+        <button onclick="
+        scores.win = 0;
+        scores.loses= 0;
+        scores.ties = 0;
+        localStorage.removeItem('scors');
+        ">Reset scores</button>
       </div>
       <div id="scores"></div>
     </header>
