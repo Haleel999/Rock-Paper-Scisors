@@ -10,8 +10,12 @@ img {
   border-radius: 5000px;
 }
 button{
+  
   margin: 20px;
 }
 p{
   font-size: 50px;
+}
+#reset{
+  height: 50px;
 }
