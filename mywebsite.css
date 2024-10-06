@@ -1,0 +1,17 @@
+body{
+  color: white;
+ background-color: black; 
+}
+img {
+  margin: 0px;
+  width: 100px;
+  height: 100px;
+  border: solid yellowgreen 5px;
+  border-radius: 5000px;
+}
+button{
+  margin: 20px;
+}
+p{
+  font-size: 50px;
+}
