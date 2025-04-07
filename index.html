@@ -1,127 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-   <meta value="viewport">
-   <title>MINE</title>
-   <link rel="stylesheet" href="mywebsite.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="mywebsite.css">
   </head>
   <body>
-    <header>
-      <div>
-        <p>Rock paper scissors</p>
-        <button onclick="
-        getPlayerMove('rock')
-        "><img src="rock.jpg"></button>
-
-
-        <button onclick="
-         getPlayerMove('paper');
-        "><img src="paper.jpg"></button>
-
-
-        <button onclick="
-         getPlayerMove('scissors');
-        "><img src="scissors.jpg"></button>
-
-        <button onclick="
-        scores.win = 0;
-        scores.loses= 0;
-        scores.ties = 0;
-        localStorage.removeItem('scors');
-        " id="reset">Reset scores</button>
+    <div class="container">
+      <p>Rock Paper Scissors</p>
+      <div class="moves">
+        <button onclick="getPlayerMove('rock')" class="move">
+          <img src="images/rock.jpg" alt="Rock">
+        </button>
+        <button onclick="getPlayerMove('paper')" class="move">
+          <img src="images/paper.jpg" alt="Paper">
+        </button>
+        <button onclick="getPlayerMove('scissors')" class="move">
+          <img src="images/scissors.jpg" alt="Scissors">
+        </button>
       </div>
-      <div id="scores"></div>
-    </header>
-    <script>
-      /*for (let i = 0; i < 100; i++) {
-        console.log('I LOVE YOU');
-        
-      }*/
-      
-
-      function getPlayerMove(playerMove) {
-        let computer=getComputerMove();
-        let result = '';
-        let scores = JSON.parse(localStorage.getItem('scors')) || {
-          win : 0,
-          loses : 0,
-          ties : 0,
-        }
-
-      if (playerMove === 'rock'){
-        if (computer == 'rock') {
-          result = `it's a tie`;
-        } else if(computer=='scissors') {
-         result = `you win`;
-        }
-        else if (computer=='paper'){
-          result = 'you lose';
-        }
-      }
-
-      else if (playerMove === 'scissors') {
-        computer=getComputerMove();
-        if (computer == 'rock') {
-           result =  'you lose';
-        } else if(computer=='scissors') {
-        result =  "it's a tie";
-        }
-        else if (computer=='paper'){
-          result = 'you win';
-        }
-      }
-      else if(playerMove === 'paper'){
-        computer=getComputerMove();
-        if (computer == 'rock') {
-          result = 'you win';
-        } else if(computer=='scissors') {
-          result = 'you lose';
-        }
-        else if (computer == 'paper'){
-          result = `it's a tie`;
-        }
-      }
-        if (result === 'you win') {
-          scores.win++;
-        }
-        else if (result === 'you lose') {
-          scores.loses++;
-        }
-        else if (result === `it's a tie`) {
-          scores.ties++;
-        }
-
-        localStorage.setItem('scors',JSON.stringify(scores));
-       alert(`computer picked ${computer} you picked  ${playerMove} , ${result}
-wins : ${scores.win}, loses : ${scores.loses}, ties : ${scores.ties}`)
-      }
-      
-document.getElementById('scores').innerHTML=`computer picked ${getPlayerMove.computer} you picked  ${getPlayerMove.playerMove} , ${getPlayerMove.result}
-wins : ${scores.win}, loses : ${scores.loses}, ties : ${scores.ties}`;
-      
-
-
-
-
-
-
-
-function getComputerMove() {
-  let compuerMove;
-        const generateNumber = Math.round(Math.random()*9) ;
-
-
-        if(generateNumber >=0 && generateNumber<3) {
-          compuerMove = 'rock';
-        }
-        else if(generateNumber>=3 && generateNumber< 6){
-          compuerMove= 'paper';
-        }
-        else if (generateNumber >=6 && generateNumber <=9){
-          compuerMove = 'scissors';
-        }
-        return compuerMove;
-}
-    </script>
+      <div class="selected-moves"></div>
+      <div class="result"></div>
+      <div class="scores">
+        Wins: 0, Losses: 0, Ties: 0
+      </div>
+      <button onclick="resetScores()" id="reset" class="reset-button">Reset Scores</button>
+    </div>
+    <script src="scripts/script.js"></script>
   </body>
 </html>
